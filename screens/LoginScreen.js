@@ -9,6 +9,7 @@ import {
     View,
 } from 'react-native';
 import constants from '../constants/Layout';
+import LoginBox from '../components/LoginBox';
 
 import { WebBrowser } from 'expo';
 
@@ -18,7 +19,7 @@ import { MonoText } from '../components/StyledText';
 //     color: "red",
 //     fontSize: 30,
 //     paddingHorizontal: 10
-// }
+// } 
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -28,40 +29,12 @@ export default class HomeScreen extends React.Component {
     render() {
         return (
             <View style={constants.page}>
-                <View style={constants.logo}>
-                    <Image source={require('../assets/images/robot-dev.png')} />
-                </View>
                 <View>
-                    <Text style={styles.child}>test 1</Text>
-                    <Text style={styles.child}>test 2</Text>
-                    <Text style={styles.child}>test 3</Text>
+                    <Image resizeMode="contain" style={constants.logo} source={require('../assets/images/YYN.png')} />
+                    <LoginBox />
                 </View>
+                
             </View>
         )
     }
-}
-
-const styles = StyleSheet.create({
-    child: {
-        ...constants.child
-    }
-})
-
-// const styles = StyleSheet.create({
-//     container: {
-//         ...sample
-//         // width: 100 + '%'
-//     },
-//     child1: {
-//         ...child,
-//         justifyContent: 'space-between'
-//     },
-//     child2: {
-//         ...child,
-//         justifyContent: 'space-between'
-//     },
-//     child3: {
-//         ...child,
-//         justifyContent: 'space-between'
-//     }
-// })
+};
