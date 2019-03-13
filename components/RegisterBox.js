@@ -1,18 +1,26 @@
 import React from 'react';
 import constants from '../constants/Layout';
 import colors from '../constants/Colors';
-
 import { Text, View, TextInput, Button, AsyncStorage, StyleSheet } from 'react-native';
 
-export default class LoginBox extends React.Component {
+export default class RegisterBox extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             credentials: {
                 email: '',
-                password: ''
+                password: '',
+                repeatPassword: '',
             }
-        };
+        }
+    };
+
+    register = async () => {
+        // send credentials to server
+        // if signup success
+        // JSON.stringify(this.state.credentials);
+        await AsyncStorage.setItem('userToken', '')
+        this.props.navigation.navigate('App');
     }
 
     updateText(text, field) {
@@ -23,25 +31,16 @@ export default class LoginBox extends React.Component {
         })
     }
 
-    login = async () => {
-        await AsyncStorage.setItem('userToken', 'abc');
-        this.props.navigation.navigate('App');
-    }
-
-    register = async () => {
-        // send credentials to server
-        // if signup success
-        // JSON.stringify(this.state.credentials);
-        await AsyncStorage.setItem('userToken', '')
-        this.props.navigation.navigate('Register');
+    facebookSdk = async () => {
+        console.log('test');
     }
 
     render() {
         return (
             <View>
-                <Text style={constants.largeText} textDecorationLine="underline">Login</Text>
+                <Text style={constants.largeText} textDecorationLine="underline">Register</Text>
                 <TextInput
-                    value={this.state.login}
+                    value={this.state.email}
                     autoCorrect={false}
                     onChangeText={text => this.updateText(text, "login")}
                     placeholder="Username"
@@ -54,27 +53,25 @@ export default class LoginBox extends React.Component {
                     placeholder="Password"
                     style={constants.input}
                 />
+                <TextInput
+                    value={this.state.repeatPassword}
+                    onChangeText={text => this.updateText(text, "repeatPassword")}
+                    secureTextEntry
+                    autoCorrect={false}
+                    placeholder="Repeat Password"
+                    style={constants.input}
+                />
                 <View style={constants.longButton}>
                     <Button
                         color={colors.ypink}
-                        title="Login"
-                        onPress={this.login} />
+                        title="Make Account"
+                        onPress={this.register} />
                 </View>
-                <View style={constants.longButton}>
-                    <Button
-                        color={colors.ygreen}
-                        title="New Account"
-                        onPress={this.register}
-                    />
-                </View>
-                <View style={constants.longButton}>
-                    <Button
-                        title="Via Facebook"
-                        color={colors.facebookblue}
-                        onPress={this.facebookSdk}
-                    />
-                </View>
+
             </View>
         )
     }
-}
+};
+
+
+

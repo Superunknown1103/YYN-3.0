@@ -9,31 +9,23 @@ import {
     View,
 } from 'react-native';
 import constants from '../constants/Layout';
-import LoginBox from '../components/LoginBox';
-
+import colors from '../constants/Colors';
+import RegisterBox from '../components/RegisterBox';
+import { Button } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
-// const child = {
-//     color: "red",
-//     fontSize: 30,
-//     paddingHorizontal: 10
-// } 
-
-export default class HomeScreen extends React.Component {
+export default class RegisterScreen extends React.Component {
     static navigationOptions = {
-        header: null,
+        header: null
     };
 
     render() {
         return (
             <View style={constants.page}>
-                <View>
-                    <Image resizeMode="contain" style={constants.logo} source={require('../assets/images/YYN.png')} />
-                    <LoginBox />
-                </View>
-                
+             <Image resizeMode="contain" style={constants.logo} source={require('../assets/images/YYN.png')} />
+                    <RegisterBox navigation={this.props.navigation} />
             </View>
         )
     }

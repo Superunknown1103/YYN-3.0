@@ -12,5 +12,6 @@ export default {
   noticeBackground: tintColor,
   noticeText: '#fff',
   ypink: '#f4bec8',
-  ygreen: '#85a17f'
+  ygreen: '#85a17f',
+  facebookblue: '#4267B2'
 };

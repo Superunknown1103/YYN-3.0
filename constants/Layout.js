@@ -35,7 +35,7 @@ export default {
     marginBottom: 10
   },
   longButton: {
-    padding: 20,
+    padding: 10,
     width: 50 + '%',
     alignSelf: 'center',
   },
