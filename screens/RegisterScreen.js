@@ -13,7 +13,13 @@ import LoginBox from '../components/LoginBox';
 
 import { WebBrowser } from 'expo';
 
-import { MonoText } from '../components/StyledText'; 
+import { MonoText } from '../components/StyledText';
+
+// const child = {
+//     color: "red",
+//     fontSize: 30,
+//     paddingHorizontal: 10
+// } 
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -25,8 +31,9 @@ export default class HomeScreen extends React.Component {
             <View style={constants.page}>
                 <View>
                     <Image resizeMode="contain" style={constants.logo} source={require('../assets/images/YYN.png')} />
-                    <LoginBox navigation={this.props.navigation}/>
+                    <LoginBox />
                 </View>
+                
             </View>
         )
     }
