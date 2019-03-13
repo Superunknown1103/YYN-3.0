@@ -13,7 +13,6 @@ export default class LoginBox extends React.Component {
         };
     }
 
-
     updateText(text, field) {
         let newCredentials = Object.assign(this.state.credentials);
         newCredentials[field] = text;
@@ -26,7 +25,7 @@ export default class LoginBox extends React.Component {
         // send credentials to server
         // if signup success
         JSON.stringify(this.state.credentials);
-        // this.props.navigation.navigate('main')
+        this.props.navigation.navigate('Home')
     }
 
     render() {
@@ -54,7 +53,7 @@ export default class LoginBox extends React.Component {
                         onPress={() => { this.register(); }} />
                 </View>
                 <Text onclick={() => { this.newUser(); }} style={{ textAlign: 'center', alignSelf: 'center' }}>
-                    New User?
+                    New User
             </Text>
             </View>
         )
