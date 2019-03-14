@@ -2,6 +2,7 @@ import React from 'react';
 import constants from '../constants/Layout';
 import colors from '../constants/Colors';
 import { Text, View, TextInput, Button, AsyncStorage, StyleSheet } from 'react-native';
+import SQL from '../backend/sql';
 
 export default class RegisterBox extends React.Component {
     constructor(props) {
@@ -16,11 +17,16 @@ export default class RegisterBox extends React.Component {
     };
 
     register = async () => {
-        // send credentials to server
-        // if signup success
-        // JSON.stringify(this.state.credentials);
-        await AsyncStorage.setItem('userToken', '')
-        this.props.navigation.navigate('App');
+        try {
+            SQL.AddUser({
+                username: this.state.credentials.email,
+                password: this.state.credentials.password
+            })
+            await AsyncStorage.setItem('userToken', '')
+            this.props.navigation.navigate('App');
+        } catch (e) {
+            alert('Looks like an error: ' + e);
+        }
     }
 
     updateText(text, field) {

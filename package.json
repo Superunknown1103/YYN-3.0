@@ -19,7 +19,14 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
-    "jest-expo": "^32.0.0"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jest-expo": "^32.0.0",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "path": "^0.12.7",
+    "react-native-dotenv": "^0.2.0",
+    "react-native-sqlite-storage": "^3.3.10"
   },
-  "private": true
+  "private": true,
+  "proxy": "http://localhost:8080"
 }

@@ -3,6 +3,7 @@ import constants from '../constants/Layout';
 import colors from '../constants/Colors';
 
 import { Text, View, TextInput, Button, AsyncStorage, StyleSheet } from 'react-native';
+// import { FBLoginButton } from './components/FBLoginButton';
 
 export default class LoginBox extends React.Component {
     constructor(props) {
@@ -34,6 +35,10 @@ export default class LoginBox extends React.Component {
         // JSON.stringify(this.state.credentials);
         await AsyncStorage.setItem('userToken', '')
         this.props.navigation.navigate('Register');
+    }
+
+    facebookSdk = () => {
+        alert('Facebook Login unavailable :(');
     }
 
     render() {
@@ -74,6 +79,8 @@ export default class LoginBox extends React.Component {
                         onPress={this.facebookSdk}
                     />
                 </View>
+                {/* getting an error trying to use FB Login Button */}
+                {/* <FBLoginButton /> */}
             </View>
         )
     }
