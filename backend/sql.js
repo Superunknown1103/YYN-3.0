@@ -1,4 +1,5 @@
 import { SQLite } from 'expo';
+import Expo from 'expo';
 
 const tableName = 'qrs';
 const db = SQLite.openDatabase('users');
@@ -7,15 +8,14 @@ export default class SQL {
     static InitDatabase() {
         db.transaction(tx => {
             tx.executeSql(
-                `create table if not exists ${tablename} (id integer primary key not null, username text, password text);`
+                `create table if not exists USERS (id integer primary key not null, username text, password text);`
             );
         });
     }
 
     static AddUser = (username, password) => {
-        db.transaction(
-            tx => {
-                tx.executeSql(`insert into ${tableName} (username, password) values (?,?)`, [
+        db.transaction(tx => {
+                tx.executeSql(`insert into USERS (username, password) values (?,?)`, [
                     username,
                     password
                 ]);
@@ -23,6 +23,8 @@ export default class SQL {
             null,
             null
         );
+        // var result = Expo.FileSystem.getInfoAsync('SQLite/<dbfilename>');
+        alert('completed');
     };
 
     static GetQRS = () => {

@@ -6,6 +6,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import Sql from '../backend/sql';
 
 export default class AuthLoadingScreen extends React.Component {
   constructor(props) {
@@ -20,8 +21,12 @@ export default class AuthLoadingScreen extends React.Component {
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
     // uncomment this one below after you built signup page
-    this.props.navigation.navigate(userToken ? 'Auth' : 'Auth');
+    this.props.navigation.navigate(userToken ? 'Home' : 'Auth');
   };
+
+  componentDidMount(){
+    Sql.InitDatabase();
+  }
 
   // Render any loading content that you like here
   render() {
