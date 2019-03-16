@@ -7,6 +7,7 @@ export default {
   window: {
     width,
     height,
+    imageHeight: Math.floor(Dimensions.get("window").width) * 1.1
   },
   page: {
     flex: 1,

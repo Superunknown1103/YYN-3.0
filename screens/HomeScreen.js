@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-import Item from '../components/Feed/Item';
+import SwipeContainer from '../components/Feed/SwipeContainer';
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
@@ -19,9 +19,10 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View>
-          <Item />
-
+      <View style={styles.container}>
+        <ScrollView style={styles.container}>
+          <SwipeContainer />
+        </ScrollView>
         {/* <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
           <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>

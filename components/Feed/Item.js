@@ -14,7 +14,7 @@ export default class Item extends Component {
     }
 
     render() {
-        const temporaryImage = require('../../assets/images/YYN.png');
+        const temporaryImage = require('../../assets/images/vans.jpg');
         return(
             <View>
                 <Picture image={temporaryImage} displayButtons={() => { this.displayButtons() }} />
