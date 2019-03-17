@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 12360,
-  "expoServerNgrokUrl": "https://uu-n96.anonymous.yyn-com.exp.direct",
-  "packagerNgrokUrl": "https://packager.uu-n96.anonymous.yyn-com.exp.direct",
-  "ngrokPid": 2524,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": null
 }

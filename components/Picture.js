@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import constants from '../constants/Layout'
-import YumButton from './YumButton.js';
-import NastyButton from './NastyButton.js';
+import { YumButton, NastyButton } from './YYNButtons.js';
+
 
 export default class Picture extends Component {
     constructor() {
@@ -26,7 +26,7 @@ export default class Picture extends Component {
 
     render() {
         return (
-            <View> 
+            <View style={{ flex: 1, flexDirection: 'row' }}>
                 <Image
                     source={this.props.image}
                     style={{
@@ -34,9 +34,27 @@ export default class Picture extends Component {
                         height: constants.window.imageHeight
                     }}
                 />
-                {/* <YumButton onPress={() => { this.yum() }} />
-                <NastyButton onPress={() => { this.nasty() }} /> */}
+                <View style={styles.overlay}>
+                    <NastyButton onclick={() => { this.nasty() }} />
+                    <YumButton onclick={() => { this.yum() }} />
+                </View>
+
             </View>
         )
     }
 };
+
+const styles = StyleSheet.create({
+    overlay: {
+        flex: 1,
+        flexDirection: 'row',
+        marginLeft: constants.window.width / 4,
+        marginTop: constants.window.height / 4,
+        alignItems: 'center',
+        position: 'absolute',
+        left: 0,
+        top: 50,
+        opacity: 0.5,
+        width: 50 + '%'
+    }
+})
