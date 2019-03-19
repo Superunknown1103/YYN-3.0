@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         alignSelf: 'flex-end',
         padding: 10,
-        opacity: 0.5,
+        opacity: 0.9,
         color: 'black',
         backgroundColor: 'white',
     },
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         alignSelf: 'flex-start',
         padding: 10,
-        opacity: 0.5,
+        opacity: 0.9,
         color: 'black',
         backgroundColor: 'white'
     }

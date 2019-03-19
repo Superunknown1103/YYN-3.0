@@ -14,10 +14,9 @@ export default class Item extends Component {
     }
 
     render() {
-        const temporaryImage = require('../../assets/images/vans.jpg');
         return(
-            <View>
-                <Picture image={temporaryImage} displayButtons={() => { this.displayButtons() }} />
+            <View style={{padding: 10}}>
+                <Picture image={this.props.product} displayButtons={() => { this.displayButtons() }} />
             </View>
         )
     }

@@ -30,15 +30,17 @@ export default class Picture extends Component {
                 <Image
                     source={this.props.image}
                     style={{
-                        width: constants.window.width,
-                        height: constants.window.imageHeight
+                        flex: 1,
+                        width: null,
+                        height: constants.window.imageHeight,
+                        resizeMode: 'cover',
+                        borderRadius: 20
                     }}
                 />
                 <View style={styles.overlay}>
                     <NastyButton onclick={() => { this.nasty() }} />
                     <YumButton onclick={() => { this.yum() }} />
                 </View>
-
             </View>
         )
     }
