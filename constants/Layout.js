@@ -19,6 +19,12 @@ export default {
     alignSelf: 'center',
     marginTop: 80
   },
+  miniLogo: {
+    height: 50,
+    width: 50,
+    marginTop: 20,
+    alignContent: 'flex-start'
+  },
   largeText: {
     padding: 20,
     color: 'black',

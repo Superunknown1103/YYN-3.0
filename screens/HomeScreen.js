@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Image,
   Platform,
   ScrollView,
+  Button,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,8 +12,18 @@ import {
 import { WebBrowser } from 'expo';
 import SwipeContainer from '../components/Feed/SwipeContainer';
 import { MonoText } from '../components/StyledText';
+import constants from '../constants/Layout';
+import colors from '../constants/Colors';
 
-export default class HomeScreen extends React.Component {
+export default class HomeScreen extends Component {
+  constructor() {
+    super()
+
+    this.showYummies = () => {
+      alert('yummy list');
+    }
+  }
+
   static navigationOptions = {
     header: null,
   };
@@ -20,57 +31,31 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.longLogo}>
+            <Text style={styles.longText}>#YUM YUM NA$TY</Text>
+          </View>
+          <View style={styles.yummies}>
+            <Button
+              color={colors.ypink}
+              title="Yummy List"
+              onPress={this.showYummies()}
+            />
+          </View>
+        </View>
         <ScrollView style={styles.container}>
           <SwipeContainer />
         </ScrollView>
-        {/* <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View> */}
       </View>
     );
   }
-
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    width: 100 + '%'
   },
   developmentModeText: {
     marginBottom: 20,
@@ -154,4 +139,23 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
+  header: {
+    flex: 1,
+    height: 50,
+    flexDirection: 'row',
+    marginBottom: 0,
+    justifyContent: 'space-between'
+  },
+  yummies: {
+    margin: 30
+  },
+  longLogo: {
+    height: 50,
+    margin: 30
+  },
+  longText: {
+    fontSize: 25,
+    fontWeight: '900',
+    fontStyle: 'italic'
+  }
 });

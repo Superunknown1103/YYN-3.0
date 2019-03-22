@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import colors from '../constants/Colors';
 
-export class YumButton extends Component {
-    render() {
-        return (
-            <TouchableOpacity style={{ flex: 1 }}>
-                <View style={styles.yumButton}>
-                <Text style={{fontSize: 20}}>
-                        Yum
-                </Text>
-                </View>
-            </TouchableOpacity>
+export default class YYNButtons extends Component {
 
-        )
+    triggerYum() {
+        // add to list of liked items
     }
-}
 
-export class NastyButton extends Component {
+    triggerNasty() {
+        // add to list of disliked items
+    }
+
     render() {
         return (
-            <TouchableOpacity>
-                <View style={styles.nastyButton}>
-                    <Text style={{fontSize: 20}}>
-                        Nasty
-                </Text>
-                </View>
-            </TouchableOpacity>
+            <View>
+                <TouchableOpacity onPress={this.triggerYum(this.props.id)} style={{ flex: 1 }}>
+                    <View style={this.yumButton}>
+                        <Text style={{ fontSize: 20 }}>
+                            Yum
+                        </Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ flex: 1 }}>
+                    <View style={styles.nastyButton}>
+                        <Text style={{ fontSize: 20 }}>
+                            Nasty
+                        </Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
         )
     }
 }
@@ -33,22 +37,20 @@ export class NastyButton extends Component {
 const styles = StyleSheet.create({
     yumButton: {
         borderWidth: 1,
-        borderColor: 'black',
-        borderStyle: 'solid',
-        alignSelf: 'flex-end',
-        padding: 10,
-        opacity: 0.9,
-        color: 'black',
-        backgroundColor: 'white',
+        backgroundColor: colors.ygreen,
+        borderColor: colors.ygreen,
+        color: '#fff',
+        fontSize: 25,
+        fontWeight: '800',
+        padding: 10
     },
     nastyButton: {
         borderWidth: 1,
-        borderColor: 'black',
-        borderStyle: 'solid',
-        alignSelf: 'flex-start',
-        padding: 10,
-        opacity: 0.9,
-        color: 'black',
-        backgroundColor: 'white'
+        backgroundColor: colors.pink,
+        borderColor: colors.ypink,
+        color: '#fff',
+        fontSize: 25,
+        fontWeight: '800',
+        padding: 10
     }
 });

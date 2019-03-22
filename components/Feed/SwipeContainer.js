@@ -5,11 +5,11 @@ import colors from '../../constants/Colors';
 import constants from '../../constants/Layout';
 
 let products = [
-    { id: '1', uri: require('../../assets/images/1.jpg') },
-    { id: '2', uri: require('../../assets/images/2.jpg') },
-    { id: '3', uri: require('../../assets/images/3.jpg') },
-    { id: '4', uri: require('../../assets/images/4.jpg') },
-    { id: '5', uri: require('../../assets/images/5.jpg') }
+    { id: 1, uri: require('../../assets/images/1.jpg') },
+    { id: 2, uri: require('../../assets/images/2.jpg') },
+    { id: 3, uri: require('../../assets/images/3.jpg') },
+    { id: 4, uri: require('../../assets/images/4.jpg') },
+    { id: 5, uri: require('../../assets/images/5.jpg') }
 ]
 
 export default class SwipeContainer extends Component {
@@ -88,6 +88,7 @@ export default class SwipeContainer extends Component {
                         })
                     })
                 }
+                // if not dragged far enough, spring card back into position
                 else {
                     Animated.spring(this.position, {
                         toValue: { x: 0, y: 0 },
@@ -135,20 +136,22 @@ export default class SwipeContainer extends Component {
                 // next cards render in this else
             } else {
                 return (
-                    // each one is required to have a key
-                    <Animated.View
-                        key={item.id}
-                        style={[{
-                            opacity: this.nextCardOpacity,
-                            transform: [{ scale: this.nextCardScale }],
-                            width: constants.window.width,
-                            height: constants.window.height - 120,
-                            position: 'absolute'
-                        }]}>
-                        <Item onFeed={true}
-                            product={item.uri}
-                        />
-                    </Animated.View>
+                    <View>
+                        {/* // each one is required to have a key */}
+                        <Animated.View
+                            key={item.id}
+                            style={[{
+                                opacity: this.nextCardOpacity,
+                                transform: [{ scale: this.nextCardScale }],
+                                width: constants.window.width,
+                                height: constants.window.height - 120,
+                                position: 'absolute'
+                            }]}>
+                            <Item onFeed={true}
+                                product={item.uri}
+                            />
+                        </Animated.View>
+                    </View>
                 );
             }
         })

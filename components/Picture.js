@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
-import constants from '../constants/Layout'
-import { YumButton, NastyButton } from './YYNButtons.js';
+import constants from '../constants/Layout';
 
 
 export default class Picture extends Component {
@@ -26,37 +25,35 @@ export default class Picture extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, flexDirection: 'row' }}>
-                <Image
-                    source={this.props.image}
-                    style={{
-                        flex: 1,
-                        width: null,
-                        height: constants.window.imageHeight,
-                        resizeMode: 'cover',
-                        borderRadius: 20
-                    }}
-                />
-                <View style={styles.overlay}>
-                    <NastyButton onclick={() => { this.nasty() }} />
-                    <YumButton onclick={() => { this.yum() }} />
+            <View>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                    <Image
+                        source={this.props.image}
+                        style={{
+                            flex: 1,
+                            width: null,
+                            height: constants.window.imageHeight,
+                            resizeMode: 'cover',
+                            borderRadius: 20
+                        }}
+                    />
                 </View>
             </View>
         )
     }
 };
 
-const styles = StyleSheet.create({
-    overlay: {
-        flex: 1,
-        flexDirection: 'row',
-        marginLeft: constants.window.width / 4,
-        marginTop: constants.window.height / 4,
-        alignItems: 'center',
-        position: 'absolute',
-        left: 0,
-        top: 50,
-        opacity: 0.5,
-        width: 50 + '%'
-    }
-})
+// const styles = StyleSheet.create({
+//     overlay: {
+//         // flex: 1,
+//         flexDirection: 'row',
+//         marginLeft: constants.window.width / 4,
+//         // marginTop: constants.window.height / 4,
+//         alignItems: 'center',
+//         position: 'absolute',
+//         left: 0,
+//         top: constants.window.imageHeight,
+//         opacity: 0.5,
+//         width: 50 + '%'
+//     }
+// })
