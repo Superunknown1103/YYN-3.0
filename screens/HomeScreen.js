@@ -15,22 +15,23 @@ import { MonoText } from '../components/StyledText';
 import constants from '../constants/Layout';
 import colors from '../constants/Colors';
 
-export default class HomeScreen extends Component {
-  constructor() {
-    super()
-
-    this.showYummies = () => {
-      alert('yummy list');
-    }
+export default class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props)
   }
 
   static navigationOptions = {
     header: null,
   };
 
+  
+  showYums = async () => {
+    this.props.navigation.navigate('Yums');
+  }
+
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.header}>
           <View style={styles.longLogo}>
             <Text style={styles.longText}>#YUM YUM NA$TY</Text>
@@ -38,15 +39,13 @@ export default class HomeScreen extends Component {
           <View style={styles.yummies}>
             <Button
               color={colors.ypink}
-              title="Yummy List"
-              onPress={this.showYummies()}
+              title="YUMS"
+              onPress={this.showYums}
             />
           </View>
         </View>
-        <ScrollView style={styles.container}>
-          <SwipeContainer />
-        </ScrollView>
-      </View>
+        <SwipeContainer />
+      </ScrollView>
     );
   }
 }
@@ -147,7 +146,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   yummies: {
-    margin: 30
+    marginTop: 30,
+    marginRight: 25
   },
   longLogo: {
     height: 50,

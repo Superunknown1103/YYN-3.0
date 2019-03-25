@@ -13,8 +13,6 @@ export default class Item extends Component {
         return display;
     }
 
-    
-
     render() {
         return(
             <View style={{padding: 10}}>
