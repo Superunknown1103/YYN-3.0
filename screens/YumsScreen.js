@@ -43,7 +43,7 @@ export default class YumsScreen extends React.Component {
             <View style={constants.page}>
                 <View style={styles.header}>
                     <View style={styles.longLogo}>
-                        <Text style={styles.longText}>#YUMMIES</Text>
+                        <Text style={styles.longText}>#YUMMY LIST</Text>
                     </View>
                     <View style={styles.backBtn}>
                         <Button
