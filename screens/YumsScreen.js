@@ -14,11 +14,11 @@ import colors from '../constants/Colors';
 import YumItem from '../components/YumItem';
 
 let products = [
-    { id: 1, name: 'Item 1', uri: require('../assets/images/1.jpg'), link: 'https://www.amazon.com/Aurora-World-Miyoni-Donkey-Plush/dp/B01BKUFUCG/ref=sr_1_4?keywords=donkey&qid=1553521405&s=gateway&sr=8-4' },
-    { id: 2, name: 'Item 2', uri: require('../assets/images/2.jpg'), link: 'https://www.amazon.com/Aurora-World-Miyoni-Donkey-Plush/dp/B01BKUFUCG/ref=sr_1_4?keywords=donkey&qid=1553521405&s=gateway&sr=8-4' },
-    { id: 3, name: 'Item 3', uri: require('../assets/images/3.jpg'), link: 'https://www.amazon.com/Aurora-World-Miyoni-Donkey-Plush/dp/B01BKUFUCG/ref=sr_1_4?keywords=donkey&qid=1553521405&s=gateway&sr=8-4' },
-    { id: 4, name: 'Item 4', uri: require('../assets/images/4.jpg'), link: 'https://www.amazon.com/Aurora-World-Miyoni-Donkey-Plush/dp/B01BKUFUCG/ref=sr_1_4?keywords=donkey&qid=1553521405&s=gateway&sr=8-4' },
-    { id: 5, name: 'Item 5', uri: require('../assets/images/5.jpg'), link: 'https://www.amazon.com/Aurora-World-Miyoni-Donkey-Plush/dp/B01BKUFUCG/ref=sr_1_4?keywords=donkey&qid=1553521405&s=gateway&sr=8-4' }
+    { id: 1, name: 'Sneakers', uri: require('../assets/images/1.jpg'), link: 'https://github.com/Superunknown1103/YYN-3.0/blob/master/assets/images/1.jpg' },
+    { id: 2, name: 'More Sneakers', uri: require('../assets/images/2.jpg'), link: 'https://github.com/Superunknown1103/YYN-3.0/blob/master/assets/images/2.jpg' },
+    { id: 3, name: 'Damn, Daniel', uri: require('../assets/images/3.jpg'), link: 'https://github.com/Superunknown1103/YYN-3.0/blob/master/assets/images/3.jpg' },
+    { id: 4, name: 'WHat r those', uri: require('../assets/images/4.jpg'), link: 'https://github.com/Superunknown1103/YYN-3.0/blob/master/assets/images/4.jpg' },
+    { id: 5, name: 'Nice Kicks', uri: require('../assets/images/5.jpg'), link: 'https://github.com/Superunknown1103/YYN-3.0/blob/master/assets/images/5.jpg' }
 ]
 
 export default class YumsScreen extends React.Component {
@@ -53,7 +53,7 @@ export default class YumsScreen extends React.Component {
                         />
                     </View>
                 </View>
-                <ScrollView style={{padding: 10}}>
+                <ScrollView style={{padding: 10, marginTop: 15 + '%', alignContent: 'center'}}>
                     <FlatList
                         data={products}
                         keyExtractor={this._returnKey}
