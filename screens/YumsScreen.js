@@ -40,7 +40,8 @@ export default class YumsScreen extends React.Component {
 
     render() {
         return (
-            <View style={constants.page}>
+            <View>
+            <View style={styles.yummyListPage}>
                 <View style={styles.header}>
                     <View style={styles.longLogo}>
                         <Text style={styles.longText}>#YUMMY LIST</Text>
@@ -53,6 +54,7 @@ export default class YumsScreen extends React.Component {
                         />
                     </View>
                 </View>
+               </View>
                 <ScrollView style={{padding: 10, marginTop: 15 + '%', alignContent: 'center'}}>
                     <FlatList
                         data={products}
@@ -88,5 +90,9 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: '900',
         fontStyle: 'italic'
+    },
+    yummyListPage: {
+        flex: 1,
+        flexDirection: 'row'
     }
 });
