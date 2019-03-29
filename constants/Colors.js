@@ -13,5 +13,6 @@ export default {
   noticeText: '#fff',
   ypink: '#f4bec8',
   ygreen: '#85a17f',
+  yblue: 'blue',
   facebookblue: '#4267B2'
 };
