@@ -31,7 +31,7 @@ export default class YumsScreen extends React.Component {
     }
 
     _renderItem({ item }) {
-        return <YumItem item={item} />
+        return <YumItem style={styles.yumItem} item={item} />
     }
 
     _returnKey(item) {
@@ -40,8 +40,7 @@ export default class YumsScreen extends React.Component {
 
     render() {
         return (
-            <View>
-            <View style={styles.yummyListPage}>
+            <View style={styles.pageWrapper}>
                 <View style={styles.header}>
                     <View style={styles.longLogo}>
                         <Text style={styles.longText}>#YUMMY LIST</Text>
@@ -54,45 +53,54 @@ export default class YumsScreen extends React.Component {
                         />
                     </View>
                 </View>
-               </View>
-                <ScrollView style={{padding: 10, marginTop: 15 + '%', alignContent: 'center'}}>
-                    <FlatList
-                        data={products}
-                        keyExtractor={this._returnKey}
-                        renderItem={(item) => {
-                            return this._renderItem(item);
-                        }}
-                    />
-                </ScrollView>
+                    <View style={styles.flatList}>
+                        <FlatList
+                            data={products}
+                            style={styles.flatList}
+                            keyExtractor={this._returnKey}
+                            renderItem={(item) => {
+                                return this._renderItem(item);
+                            }}
+                        />
+                    </View>
             </View>
         )
     }
 };
 
 const styles = StyleSheet.create({
-    header: {
+    pageWrapper: {
         flex: 1,
-        height: 50,
+        height: constants.window.height,
+        width: constants.window.width,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    header: {
         flexDirection: 'row',
-        marginBottom: 0,
-        alignContent: 'center',
-        justifyContent: 'space-between'
+        padding: 20,
+        marginTop: 10,
+        marginLeft: 10,
     },
     backBtn: {
-        marginTop: 30,
-        marginRight: 25
+        width: 100,
+        height: 50
     },
     longLogo: {
-        height: 50,
-        margin: 30
+        width: 250,
+        height: 50
     },
     longText: {
-        fontSize: 25,
+        fontSize: 35,
         fontWeight: '900',
         fontStyle: 'italic'
     },
-    yummyListPage: {
+    flatList: {
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'column',
+        width: 100 + '%',
+        padding: 10,
+        marginLeft: 20
     }
 });

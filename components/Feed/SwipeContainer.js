@@ -180,6 +180,7 @@ export default class SwipeContainer extends Component {
                                 product={item.uri}
                             />
                         </Animated.View>
+                        
                     </View>
                 );
             }
