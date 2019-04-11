@@ -17,6 +17,7 @@ export default class SwipeContainer extends Component {
         super()
 
         this.position = new Animated.ValueXY()
+
         this.state = {
             currentIndex: 0,
             currentProduct: products[0]
@@ -77,7 +78,10 @@ export default class SwipeContainer extends Component {
                 // swipe up
                 if (gestureState.dx > -20 && gestureState.dx < 20 && gestureState.dy < 50) {
                     // redirect to product purchase
-                    Linking.openURL(this.state.currentProduct.link)
+                    setTimeout(() => {
+                        alert('Redirecting you to ' + this.state.currentProduct.link)
+                        Linking.openURL(this.state.currentProduct.link)
+                    }, 600);
                     Animated.spring(this.position, {
                         toValue: { x: constants.window.width, y: gestureState.dy + 100 }
                     }).start(() => {
@@ -180,7 +184,7 @@ export default class SwipeContainer extends Component {
                                 product={item.uri}
                             />
                         </Animated.View>
-                        
+
                     </View>
                 );
             }
