@@ -4,18 +4,20 @@ const mysql = require('mysql');
 
 const app = express();
 
-const SELECT_ALL_USERS_Q = 'SELECT * FROM Users';
+const SELECT_ALL_USERS_Q = 'SELECT * FROM users';
 
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Superman1103',
+    password: 'p@ssw0rd',
     database: 'yyn_db'
 })
 
 connection.connect(err => {
     if (err) {
-        return err;
+        console.log(err);
+    } else {
+        console.log('Connected to the MySQL server');
     }
 });
 
